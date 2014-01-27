@@ -1,5 +1,5 @@
 //---------------------------------------------------------------------------
-#include "Unit1.h"
+#include "main.h"
 //Author: Ruben Kelevra
 //Mail: cyrond at gmail dot com
 //Licence: AGPL 3.0
