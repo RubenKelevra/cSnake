@@ -138,7 +138,7 @@ int main()
       char bError = 0; //an error has occoured?
       int iModus = 6; //modus operandi - intro = 6 | menu start = 4  | 7=testing
       char bAppRunning = 1; //should mainprogram run?
-      char sLogo[8][78] = {"\n          .-.                .\n", "         (   )               |\n", "          `-.   .--.   .-.   |.-.   .-.\n", "         (   )  |  |  (   )  |-.'  (.-'    Ver. 0.5b\n", "          `-'   '  `-  `-'`- '  `-  `--'.                       .\n", "                      .- .-. .-. .- .-. |  .-,   . . .-, .-. .- . .-. .-.\n", "                      `- `-' ' ' -' `-' '- `'-    `  `'- '   -' ' `-' ' '\n\n", "                          written by Ruben Wisniewski\n\n\n\n\n"};
+      char sLogo[8][78] = {"\n          .-.                .\n", "         (   )               |\n", "          `-.   .--.   .-.   |.-.   .-.\n", "         (   )  |  |  (   )  |-.'  (.-'    Ver. 0.5b\n", "          `-'   '  `-  `-'`- '  `-  `--'.                       .\n", "                      .- .-. .-. .- .-. |  .-,   . . .-, .-. .- . .-. .-.\n", "                      `- `-' ' ' -' `-' '- `'-    `  `'- '   -' ' `-' ' '\n\n", "                          written by @RubenKelevra\n\n\n\n\n"};
     //changeable vars for settings
       unsigned short int usiApples = 35; //defaultnumber of apples in the level
 
