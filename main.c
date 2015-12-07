@@ -33,16 +33,8 @@
 
 /*         END          */
 
-
-void gotoXY(short int x, short int y) //This will set the position of the cursor
-{   //thanks to www.dreamincode.net
-  //Initialize the coordinates
-  COORD coord;
-  coord.X = x;
-  coord.Y = y;
-  //Set the position
-  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-  return;
+void gotoXY(short int x, short int y) {
+  printf("\033[%d;%dH", y+1, x+1);
 }
 
 void SetFG_Color(int ForgC) //This will set the forground color for printing in a console window.
