@@ -37,6 +37,25 @@ void gotoXY(short int x, short int y) {
   printf("\033[%d;%dH", y+1, x+1);
 }
 
+void setFG_Red()
+{
+  
+}
+
+void setBG_Grey()
+{
+  
+}
+
+void resetFG_BG()
+{
+  #FIXME
+}
+void setWormColor()
+{
+  
+}
+
 void SetFG_Color(int ForgC) //This will set the forground color for printing in a console window.
 {   //thanks to www.dreamincode.net
   WORD wColor;
@@ -154,7 +173,7 @@ int main()
 
   while(bAppRunning) //mainloop
   {
-    SetColor(15, 0);
+    resetFG_BG();
     clear();
     switch (iModus)
     {
@@ -164,7 +183,7 @@ int main()
         cPressedKey = 0;
 
         //draw the map the first time with startup screen
-        SetColor(15, 8);
+        setBG_Grey();
         for(i = 0;i <= 23;i++) //lines
         {
           for(i2 = 0;i2 < 80;i2++) //chars
@@ -173,7 +192,7 @@ int main()
             {
               if(i == 7 && i2 == 18)
               {
-                SetColor(15, 0);
+                resetFG_BG();
                 gotoXY(26, 8);
                 printf("Use the arrow keys for movation");
                 gotoXY(20, 10);
@@ -182,7 +201,7 @@ int main()
                 printf("Hit enter to exit");
                 gotoXY(30, 14);
                 printf("Press any key to start");
-                SetColor(15, 8);
+                setBG_Grey();
               }
               continue;
             }
@@ -196,12 +215,12 @@ int main()
             SetFG_Color(15);
           }
         }
-        SetColor(15,0);
+        resetFG_BG();
         printf("Remaining Playtime:%4d sec | Apples:%4d | Level:   1 | Lives:%4d", uiGameLength_ms/1000, usiEatenApples, cSnakeLives);
         getch();
 
         //draw over the black box
-        SetColor(15, 8);
+        setBG_Grey();
         for(i = 7;i <= 15;i++) //lines
         {
           for(i2 = 18;i2 < 62;i2++) //chars
@@ -284,7 +303,7 @@ int main()
                     cNextField = cWormVertical;
                     break;
                   default:
-                    SetColor(15, 0);
+                    resetFG_BG();
                     clear();
                     printf("FATAL ERROR: unexpected direction value for the worm in decition for movation from the bottom, exiting now\n\n");
                     bAppRunning = 0;
@@ -329,7 +348,7 @@ int main()
                     cNextField = cWormHorizontal;
                     break;
                   default:
-                    SetColor(15, 0);
+                    resetFG_BG();
                     clear();
                     printf("FATAL ERROR: unexpected direction value for the worm in decition for movation from the left, exiting now\n\n");
                     bAppRunning = 0;
@@ -374,7 +393,7 @@ int main()
                     cNextField = cWormVertical;
                     break;
                   default:
-                    SetColor(15, 0);
+                    resetFG_BG();
                     clear();
                     printf("FATAL ERROR: unexpected direction value for the worm in decition for movation from the top, exiting now\n\n");
                     bAppRunning = 0;
@@ -419,7 +438,7 @@ int main()
                     cNextField = cLastField = cWormHorizontal;
                     break;
                   default:
-                    SetColor(15, 0);
+                    resetFG_BG();
                     clear();
                     printf("FATAL ERROR: unexpected direction value for the worm in decition for movation from the right, exiting now\n\n");
                     bAppRunning = 0;
@@ -439,7 +458,7 @@ int main()
               }
               break;
             default:
-              SetColor(15, 0);
+              resetFG_BG();
               clear();
               printf("FATAL ERROR: unexpected direction value for the worm, exiting now\n\n");
               bAppRunning = 0;
@@ -457,7 +476,7 @@ int main()
           //printing the space behind the worm
           if( (cFieldsContent[cSnakePosition[iActualSnakePosition-iSnakeLength-1][0]][cSnakePosition[iActualSnakePosition-iSnakeLength-1][1]] == cLevelSpace || cFieldsContent[cSnakePosition[iActualSnakePosition-iSnakeLength-1][0]][cSnakePosition[iActualSnakePosition-iSnakeLength-1][1]] == cWall) && iActualSnakePosition > 0)
           {
-            SetColor(15, 8);
+            setBG_Grey();
             gotoXY(cSnakePosition[iActualSnakePosition-iSnakeLength-1][1], cSnakePosition[iActualSnakePosition-iSnakeLength-1][0]);
             printf("%c", cFieldsContent[cSnakePosition[iActualSnakePosition-iSnakeLength-1][0]][cSnakePosition[iActualSnakePosition-iSnakeLength-1][1]]);
           }
@@ -484,7 +503,7 @@ int main()
             if(cFieldsContent[cFinishY][cFinishX] == cLevelSpace) //if finish is already opend, close it again
             {
               cFieldsContent[cFinishY][cFinishX] = cWall;
-              SetColor(15, 8);
+              setBG_Grey();
               gotoXY(cFinishX, cFinishY);
               printf("%c", cWall);
             }
@@ -496,7 +515,7 @@ int main()
           {
             if(cSnakePosition[iActualSnakePosition][1] == cFinishX && cSnakePosition[iActualSnakePosition][0] == cFinishY)
             {
-              SetColor(15, 0);
+              resetFG_BG();
               clear();
               printf("You have won the game!");
               getch();
@@ -506,14 +525,14 @@ int main()
             if(cFieldsContent[cFinishY][cFinishX] != cLevelSpace)
             {
               cFieldsContent[cFinishY][cFinishX] = cLevelSpace;
-              SetColor(15, 8);
+              setBG_Grey();
               gotoXY(cFinishX, cFinishY);
               printf("%c", cLevelSpace);
             }
           }
 
           //printing the worm
-          SetColor(10, 8);
+          setWormColor();
           //new field
           gotoXY(cSnakePosition[iActualSnakePosition][1], cSnakePosition[iActualSnakePosition][0]);
           printf("%c", cFieldsContent[cSnakePosition[iActualSnakePosition][0]][cSnakePosition[iActualSnakePosition][1]]);
@@ -521,7 +540,7 @@ int main()
           gotoXY(cSnakePosition[iActualSnakePosition-1][1], cSnakePosition[iActualSnakePosition-1][0]);
           printf("%c", cFieldsContent[cSnakePosition[iActualSnakePosition-1][0]][cSnakePosition[iActualSnakePosition-1][1]]);
 
-          SetColor(15,0);
+          resetFG_BG();
           gotoXY(19, 24);
           printf("%4d", uiGameLength_ms/1000);
           gotoXY(37, 24);
@@ -609,7 +628,7 @@ int main()
                 bMainMenu = 0;
                 break;
               default:
-                SetColor(15, 0);
+                resetFG_BG();
                 clear();
                 printf("FATAL ERROR: unexpected mainmenu-selection, exiting now\n\n");
                 bAppRunning = 0;
@@ -687,7 +706,7 @@ int main()
          bAppRunning = 0;
          break;
       default:
-        SetColor(15, 0);
+        resetFG_BG();
         clear();
         printf("FATAL ERROR: unexpected app-mode value, exiting now\n\n");
         bAppRunning = 0;
@@ -700,7 +719,7 @@ int main()
     printf("\nwe're sorry for any inconvenience\n\n\npress any key to exit");
   else
   {
-    SetColor(15, 0);
+    resetFG_BG();
     clear();
     printf("press any key to exit"); //FIXME: A better ending
   }
