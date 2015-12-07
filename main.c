@@ -39,36 +39,36 @@ void gotoXY(short int x, short int y) {
 
 void setFG_Red()
 {
-  #FIXME
+  //FIXME
 }
 
 void setFG_White()
 {
-  #FIXME
+  //FIXME
 }
 
 void setFG_LightGrey()
 {
-  #FIXME
+  //FIXME
 }
 
 void setFG_White_BG_Grey()
 {
-  #FIXME
+  //FIXME
 }
 
 void resetFG_BG()
 {
-  #FIXME
+  //FIXME
 }
 void setFGWormColor()
 {
-  #FIXME
+  //FIXME
 }
 
 void setWormColor()
 {
-  #FIXME
+  //FIXME
 }
 
 int drawApples(char cField[24][80], unsigned short int usiAmount) //create apples
